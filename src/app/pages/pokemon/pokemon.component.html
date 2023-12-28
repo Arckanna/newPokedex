@@ -1,0 +1,21 @@
+<h1 [ngClass]="{'is-editing' : isEditing}"> {{currentIndex}} </h1>
+<button class="btn btn-primary" routerLink="/">
+    Accueil
+</button>
+<button class="btn btn-primary m-2" [routerLink]="['/pokemon',currentIndex+1]">
+    pokemon suivant
+</button>
+<button class="btn btn-primary" [routerLink]="['/pokemon',currentIndex]" [queryParams]="{'isEditing':true}">
+    Editer
+</button>
+
+<ul  class="nav nav-tabs">
+   
+      <li class="nav-item" *ngFor="let tab of tabs">
+        <a class="nav-link " [routerLink]="tab.path" routerLinkActive="active" >{{tab.name}}</a>
+      </li>
+      
+      
+      
+  </ul>
+  <router-outlet></router-outlet>

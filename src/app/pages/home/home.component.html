@@ -8,6 +8,6 @@
         <button class="btn btn-primary" (click)="onAddPokemonClick()">Ajouter</button>
       </div>
     </div>
-    <app-pokemon-item *ngFor="let pokemon of pokemons; let index = index" [pokemon]="pokemon" (delete)="onDeletePokemon(index)"></app-pokemon-item>
+    <app-pokemon-item [routerLink]="['/pokemon',index,pokemon]" *ngFor="let pokemon of pokemons; let index = index" [pokemon]="pokemon" (delete)="onDeletePokemon(index)"></app-pokemon-item>
     
   </div>

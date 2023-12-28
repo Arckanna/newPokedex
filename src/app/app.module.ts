@@ -8,15 +8,52 @@ import { FormsModule } from '@angular/forms';
 import { PokemonItemComponent } from './Components/pokemon-item/pokemon-item.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { PokemonComponent } from './pages/pokemon/pokemon.component';
+import { GeneralComponent } from './pages/pokemon/general/general.component';
+import { DetailsComponent } from './pages/pokemon/details/details.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { 
+    path: '',
+     component: HomeComponent
+  },
+  {
+    path: 'pokemon/:index',
+    component: PokemonComponent,
+    children: [
+      {
+        path: '',
+       redirectTo: 'general',
+       pathMatch: 'full'
+      },
+      {
+        path: 'general',
+        component: GeneralComponent
+      },
+      {
+        path: 'details',
+        component: DetailsComponent
+      }
+    ]
+  },
+  {
+    path: 'notfound',
+    component: NotfoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/notfound'
+  }
 ];
 @NgModule({
   declarations: [
     AppComponent,
     PokemonItemComponent,
-    HomeComponent
+    HomeComponent,
+    PokemonComponent,
+    GeneralComponent,
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
