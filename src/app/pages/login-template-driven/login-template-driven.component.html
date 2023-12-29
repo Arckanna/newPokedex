@@ -1,0 +1,17 @@
+
+<div class="container mt-5">
+    <h1 class="mb-3">connexion</h1>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" ngModel name="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+        </div>
+        <div class="mb-3 row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+            <input type="password" ngModel name="password" class="form-control" id="inputPassword">
+        </div>
+        <div class="mb-3 row">
+            <button class="btn btn-primary" type="submit">Valider</button>
+        </div>
+    </form>
+</div>

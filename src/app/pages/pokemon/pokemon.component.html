@@ -1,14 +1,19 @@
 <h1 [ngClass]="{'is-editing' : isEditing}"> {{currentIndex}} </h1>
-<button class="btn btn-primary" routerLink="/">
-    Accueil
-</button>
-<button class="btn btn-primary m-2" [routerLink]="['/pokemon',currentIndex+1]">
-    pokemon suivant
-</button>
-<button class="btn btn-primary" [routerLink]="['/pokemon',currentIndex]" [queryParams]="{'isEditing':true}">
-    Editer
-</button>
 
+<div mb-3>
+    <button class="btn btn-primary" routerLink="/">
+        Accueil
+    </button>
+    <button class="btn btn-primary m-2" [routerLink]="['/pokemon',currentIndex+1]">
+        pokemon suivant
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/pokemon',currentIndex]" [queryParams]="{'isEditing':true}" *ngIf="!isEditing">
+        Editer
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/pokemon',currentIndex]" [queryParams]="{'isEditing':false}" *ngIf="isEditing">
+        Valider
+    </button>
+</div>
 <ul  class="nav nav-tabs">
    
       <li class="nav-item" *ngFor="let tab of tabs">
