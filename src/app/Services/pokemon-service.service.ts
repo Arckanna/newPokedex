@@ -5,6 +5,7 @@ export type PokemonGender = 'male' | 'female';
 export interface Pokemon {
   name: string;
   gender: PokemonGender;
+  creationDate?: Date;
 }
 
 @Injectable({
@@ -19,6 +20,7 @@ export class PokemonServiceService {
     this.pokemons.push({
       name,
       gender: Math.random() < 0.5 ? 'male' : 'female',
+      creationDate: new Date(),
     });
   }
   onDeletePokemon(index: number) {

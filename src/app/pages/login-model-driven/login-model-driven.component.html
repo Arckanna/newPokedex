@@ -1,35 +1,32 @@
 <div class="container mt-5">
     <h1 class="mb-3">connexion</h1>
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div ngModelGroup="userData" #userData="ngModelGroup">   
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+         
             <div class="mb-3">
                 <label for="inputEmail" class="form-label">Email</label>
-                <input type="email" ngModel required email name="email" #email="ngModel" class="form-control"
+                <input type="email" formControlName="email"  class="form-control"
                     id="inputEmail" placeholder="name@example.com">
                 <div class="invalid-feedback" *ngIf="email.touched && email.invalid && email.errors">
                     <div class="invalid-feedback" *ngIf="email.errors['required']">
                         L'email est obligatoire
                     </div>
-                    <div class="invalid-feedback" *ngIf=" email.errors['email']">
+                    <div class="invalid-feedback" *ngIf="email.errors['email']">
                         L'email est invalide
                     </div>
                 </div>
-            </div>
+            </div> 
     
             <div class="mb-3 row">
                 <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                <input type="password" required ngModel name="password" #password="ngModel" class="form-control"
+                <input type="password" formControlName="password"  class="form-control"
                     id="inputPassword">
                 <div class="invalid-feedback" *ngIf="password.touched && password.invalid">
                     Le mot de passe est obligatoire
                 </div>
             </div>
-        </div>
+       
         
-        <div class="mb-3">
-            <label for="textareaComment" class="col-sm-2 col-form-label">Commentaire</label>
-            <textarea name="comment" id="textareaComment" class="form-control" ngModel cols="30" rows="10"></textarea>
-        </div>
+        
         <div class="mb-3 row">
             <button class="btn btn-primary" type="submit">Valider</button>
         </div>

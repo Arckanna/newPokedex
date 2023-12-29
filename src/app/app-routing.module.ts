@@ -9,12 +9,13 @@ import { AuthGuard } from './Guards/auth.guard';
 import { CanDeactivateGuard } from './Guards/can-deactivate.guard';
 import { ErrorComponent } from './pages/error/error.component';
 import { LoginTemplateDrivenComponent } from './pages/login-template-driven/login-template-driven.component';
+import { LoginModelDrivenComponent } from './pages/login-model-driven/login-model-driven.component';
 
 const routes: Routes = [
   { 
     path: '',
-    component:LoginTemplateDrivenComponent
-     //component: HomeComponent
+    //component:LoginModelDrivenComponent
+     component: HomeComponent
   },
   { 
     path: 'login-template-driven-form',

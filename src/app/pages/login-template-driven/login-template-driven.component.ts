@@ -9,5 +9,13 @@ export class LoginTemplateDrivenComponent {
 
   onSubmit(form: any): void {
     console.log('You submitted value:', form);
+
+    form.form.markAllAsTouched();
+
+    if (form.invalid) {
+      alert('Form is valid');
+    }
+
+    form.reset();
   }
 }
