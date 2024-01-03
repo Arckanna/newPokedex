@@ -16,6 +16,7 @@ import { LoginModelDrivenComponent } from './pages/login-model-driven/login-mode
 import localFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
 import { ShortenPipe } from './pipes/shorten.pipe';
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localFr);
 
 @NgModule({
@@ -31,7 +32,7 @@ registerLocaleData(localFr);
     LoginModelDrivenComponent,
     ShortenPipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule,ReactiveFormsModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule,ReactiveFormsModule,HttpClientModule],
   providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent],
 })

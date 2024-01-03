@@ -10,9 +10,17 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   title = 'newPokedex';
   currentPokemonName = '';
-  pokemons: Pokemon[] = this.PokemonServiceService.pokemons;
+  pokemons: Pokemon[] = [];
 
- constructor(private PokemonServiceService:PokemonServiceService, public authService: AuthService, private router: Router) {}
+ constructor(private PokemonServiceService:PokemonServiceService, public authService: AuthService, private router: Router) {
+  this.getPokemons();
+ }
+
+ getPokemons(){
+    this.PokemonServiceService.getPokemons().subscribe((pokemons: Pokemon[]) => {
+      this.pokemons = pokemons;
+    });;
+ }
 
   onAddPokemonClick() {
     this.PokemonServiceService.addPokemon(this.currentPokemonName);
